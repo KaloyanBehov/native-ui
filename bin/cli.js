@@ -4,7 +4,59 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Change this to your actual repo URL
-const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/rn-cn-ui/main";
+const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/native-ui/main";
+
+const TAILWIND_CONFIG_CONTENT = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
+  },
+  plugins: [],
+};
+`;
 
 const command = process.argv[2];
 let componentName = null;
@@ -64,6 +116,15 @@ async function main() {
             console.log('✓ Created src/global.css');
         } else {
             console.error('Failed to download global.css');
+        }
+
+        // 3. Create tailwind.config.js if it doesn't exist
+        const tailwindConfigPath = path.join(process.cwd(), 'tailwind.config.js');
+        if (!fs.existsSync(tailwindConfigPath)) {
+            fs.writeFileSync(tailwindConfigPath, TAILWIND_CONFIG_CONTENT);
+            console.log('✓ Created tailwind.config.js');
+        } else {
+            console.log('ℹ tailwind.config.js already exists. Please ensure it has the correct theme configuration.');
         }
 
         console.log('\nProject initialized! Don\'t forget to import global.css in your root layout/index file.');
