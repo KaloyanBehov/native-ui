@@ -47,6 +47,28 @@ async function main() {
       fs.mkdirSync(targetBaseDir, { recursive: true });
     }
 
+    // Ensure utils.ts exists
+    const utilsDir = path.join(process.cwd(), 'src', 'lib');
+    const utilsPath = path.join(utilsDir, 'utils.ts');
+
+    if (!fs.existsSync(utilsPath)) {
+        console.log('utils.ts not found. Creating...');
+        if (!fs.existsSync(utilsDir)) {
+            fs.mkdirSync(utilsDir, { recursive: true });
+        }
+        
+        const utilsUrl = `${BASE_URL}/src/lib/utils.ts`;
+        const utilsResponse = await fetch(utilsUrl);
+        
+        if (utilsResponse.ok) {
+            const utilsContent = await utilsResponse.text();
+            fs.writeFileSync(utilsPath, utilsContent);
+            console.log('✓ Created src/lib/utils.ts');
+        } else {
+            console.error('Failed to download utils.ts. Please create src/lib/utils.ts manually.');
+        }
+    }
+
     // 3. Fetch and write files
     for (const file of config.files) {
       const fileUrl = `${BASE_URL}/${file}`;
