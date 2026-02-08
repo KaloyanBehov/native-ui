@@ -1,90 +1,63 @@
-# Native UI
+# rn-cn-ui
 
 A high-quality, open-source UI library for React Native, inspired by shadcn/ui.
+**This is a CLI tool** that copies the component code into your project, allowing you to customize it fully.
 
-## Features
+## Prerequisites
 
-- **Minimal Design**: Clean and modern aesthetic.
-- **Highly Reusable**: Built with reusability in mind.
-- **Class Merging**: Uses `clsx` and `tailwind-merge` for easy styling overrides.
-- **NativeWind**: Built on top of NativeWind for Tailwind CSS in React Native.
-
-## Installation
-
-```bash
-npm install rn-cn-ui
-```
+1.  **React Native** project (Expo or CLI).
+2.  **NativeWind** and **Tailwind CSS** configured.
 
 ## Usage
 
-### Button
+You do not install this library as a dependency. Instead, you use the CLI to add components to your project.
 
-```tsx
-import { Button } from "rn-cn-ui"
+### Adding a Component
 
-<Button label="Click me" onPress={() => console.log("Pressed")} />
-<Button variant="destructive" label="Delete" />
-<Button variant="outline" label="Cancel" />
+Run the following command to add a component (e.g., `button`) to your project:
+
+```bash
+npx rn-cn-ui add button
 ```
 
-### Text
+This will:
+1.  Download `button.tsx` to your `src/components/ui/` directory.
+2.  Install necessary dependencies (like `class-variance-authority`, `clsx`, `tailwind-merge`).
+
+### Using the Component
+
+Once added, import the component from your local directory:
 
 ```tsx
-import { Text } from "rn-cn-ui"
+import { Button } from "./src/components/ui/button"
 
-<Text variant="h1">Heading 1</Text>
-<Text variant="lead">This is a lead text.</Text>
+export default function App() {
+  return (
+    <Button label="Click me" onPress={() => console.log("Pressed")} />
+  )
+}
 ```
 
-### Input
+## Available Components
 
-```tsx
-import { Input, Label } from "rn-cn-ui"
+You can add any of the following components:
 
-<Label>Email</Label>
-<Input placeholder="Enter your email" />
-```
-
-### Card
-
-```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "rn-cn-ui"
-
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <Text>Content goes here</Text>
-  </CardContent>
-  <CardFooter>
-    <Button label="Action" />
-  </CardFooter>
-</Card>
-```
-
-### Badge
-
-```tsx
-import { Badge } from "rn-cn-ui"
-
-<Badge label="New" />
-<Badge variant="destructive" label="Error" />
-```
-
-### Avatar
-
-```tsx
-import { Avatar, AvatarImage, AvatarFallback, AvatarFallbackText } from "rn-cn-ui"
-
-<Avatar>
-  <AvatarImage source={{ uri: "https://github.com/shadcn.png" }} />
-  <AvatarFallback>
-    <AvatarFallbackText>CN</AvatarFallbackText>
-  </AvatarFallback>
-</Avatar>
-```
+-   `button`
+-   `text`
+-   `input`
+-   `card`
+-   `badge`
+-   `avatar`
+-   `label`
+-   `separator`
+-   `skeleton`
+-   `spinner`
+-   `switch`
+-   `checkbox`
+-   `radio-group`
+-   `textarea`
+-   `alert`
+-   `progress`
 
 ## Configuration
 
