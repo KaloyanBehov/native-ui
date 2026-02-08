@@ -4,7 +4,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Change this to your actual repo URL
-const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/native-ui/main";
+const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/rn-cn-ui/main";
 
 const command = process.argv[2];
 let componentName = null;
