@@ -16,7 +16,7 @@ if (command === 'add') {
 }
 
 if (!componentName) {
-  console.error('Usage: npx native-ui add <component-name>');
+  console.error('Usage: npx native-cn-ui add <component-name>');
   process.exit(1);
 }
 
