@@ -1,0 +1,82 @@
+{
+  "button": {
+    "name": "button",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/button.tsx"]
+  },
+  "text": {
+    "name": "text",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/text.tsx"]
+  },
+  "input": {
+    "name": "input",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/input.tsx"]
+  },
+  "card": {
+    "name": "card",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/card.tsx"]
+  },
+  "badge": {
+    "name": "badge",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/badge.tsx"]
+  },
+  "avatar": {
+    "name": "avatar",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/avatar.tsx"]
+  },
+  "label": {
+    "name": "label",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/label.tsx"]
+  },
+  "separator": {
+    "name": "separator",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/separator.tsx"]
+  },
+  "skeleton": {
+    "name": "skeleton",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/skeleton.tsx"]
+  },
+  "spinner": {
+    "name": "spinner",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/spinner.tsx"]
+  },
+  "switch": {
+    "name": "switch",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/switch.tsx"]
+  },
+  "checkbox": {
+    "name": "checkbox",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/checkbox.tsx"]
+  },
+  "radio-group": {
+    "name": "radio-group",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/radio-group.tsx"]
+  },
+  "textarea": {
+    "name": "textarea",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/textarea.tsx"]
+  },
+  "alert": {
+    "name": "alert",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/alert.tsx"]
+  },
+  "progress": {
+    "name": "progress",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/progress.tsx"]
+  }
+}

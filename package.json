@@ -1,12 +1,22 @@
 {
   "name": "native-ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "A high-quality, open-source UI library for React Native, inspired by shadcn/ui.",
   "main": "index.js",
+  "bin": {
+    "native-ui": "./bin/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "react-native",
+    "ui",
+    "components",
+    "shadcn",
+    "tailwind",
+    "nativewind"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
