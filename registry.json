@@ -78,5 +78,40 @@
     "name": "progress",
     "dependencies": ["clsx", "tailwind-merge"],
     "files": ["src/components/ui/progress.tsx"]
+  },
+  "accordion": {
+    "name": "accordion",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/accordion.tsx"]
+  },
+  "aspect-ratio": {
+    "name": "aspect-ratio",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/aspect-ratio.tsx"]
+  },
+  "dialog": {
+    "name": "dialog",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/dialog.tsx"]
+  },
+  "select": {
+    "name": "select",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/select.tsx"]
+  },
+  "tabs": {
+    "name": "tabs",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/tabs.tsx"]
+  },
+  "toggle": {
+    "name": "toggle",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/toggle.tsx"]
+  },
+  "toggle-group": {
+    "name": "toggle-group",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/toggle-group.tsx", "src/components/ui/toggle.tsx"]
   }
 }
