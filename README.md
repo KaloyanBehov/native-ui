@@ -12,7 +12,7 @@ A high-quality, open-source UI library for React Native, inspired by shadcn/ui.
 ## Installation
 
 ```bash
-npm install native-cn-ui
+npm install rn-cn-ui
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ npm install native-cn-ui
 ### Button
 
 ```tsx
-import { Button } from "native-cn-ui"
+import { Button } from "rn-cn-ui"
 
 <Button label="Click me" onPress={() => console.log("Pressed")} />
 <Button variant="destructive" label="Delete" />
@@ -30,7 +30,7 @@ import { Button } from "native-cn-ui"
 ### Text
 
 ```tsx
-import { Text } from "native-cn-ui"
+import { Text } from "rn-cn-ui"
 
 <Text variant="h1">Heading 1</Text>
 <Text variant="lead">This is a lead text.</Text>
@@ -39,7 +39,7 @@ import { Text } from "native-cn-ui"
 ### Input
 
 ```tsx
-import { Input, Label } from "native-cn-ui"
+import { Input, Label } from "rn-cn-ui"
 
 <Label>Email</Label>
 <Input placeholder="Enter your email" />
@@ -48,7 +48,7 @@ import { Input, Label } from "native-cn-ui"
 ### Card
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "native-cn-ui"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "rn-cn-ui"
 
 <Card>
   <CardHeader>
@@ -67,7 +67,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, 
 ### Badge
 
 ```tsx
-import { Badge } from "native-cn-ui"
+import { Badge } from "rn-cn-ui"
 
 <Badge label="New" />
 <Badge variant="destructive" label="Error" />
@@ -76,7 +76,7 @@ import { Badge } from "native-cn-ui"
 ### Avatar
 
 ```tsx
-import { Avatar, AvatarImage, AvatarFallback, AvatarFallbackText } from "native-cn-ui"
+import { Avatar, AvatarImage, AvatarFallback, AvatarFallbackText } from "rn-cn-ui"
 
 <Avatar>
   <AvatarImage source={{ uri: "https://github.com/shadcn.png" }} />

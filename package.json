@@ -1,10 +1,10 @@
 {
-  "name": "native-cn-ui",
+  "name": "rn-cn-ui",
   "version": "1.0.0",
   "description": "A high-quality, open-source UI library for React Native, inspired by shadcn/ui.",
   "main": "index.js",
   "bin": {
-    "native-cn-ui": "./bin/cli.js"
+    "rn-cn-ui": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
