@@ -3,25 +3,73 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/native-ui/main"; // TODO: Update this with your repo
+// Change this to your actual repo URL
+const BASE_URL = "https://raw.githubusercontent.com/KaloyanBehov/native-ui/main";
 
-const component = process.argv[2];
 const command = process.argv[2];
-
 let componentName = null;
-if (command === 'add') {
+
+if (command === 'init') {
+    // Handle init command
+} else if (command === 'add') {
     componentName = process.argv[3];
 } else {
+    // Fallback for older usage: npx rn-cn-ui <component>
     componentName = command;
 }
 
-if (!componentName) {
-  console.error('Usage: npx rn-cn-ui add <component-name>');
+if (!componentName && command !== 'init') {
+  console.error('Usage:');
+  console.error('  npx rn-cn-ui init          (Initialize project with global.css and utils)');
+  console.error('  npx rn-cn-ui add <name>    (Add a component)');
   process.exit(1);
 }
 
 async function main() {
   try {
+    if (command === 'init') {
+        console.log('Initializing project...');
+        
+        // 1. Create src/lib/utils.ts
+        const utilsDir = path.join(process.cwd(), 'src', 'lib');
+        const utilsPath = path.join(utilsDir, 'utils.ts');
+        
+        if (!fs.existsSync(utilsDir)) {
+            fs.mkdirSync(utilsDir, { recursive: true });
+        }
+
+        const utilsUrl = `${BASE_URL}/src/lib/utils.ts`;
+        const utilsResponse = await fetch(utilsUrl);
+        if (utilsResponse.ok) {
+            const utilsContent = await utilsResponse.text();
+            fs.writeFileSync(utilsPath, utilsContent);
+            console.log('✓ Created src/lib/utils.ts');
+        } else {
+            console.error('Failed to download utils.ts');
+        }
+
+        // 2. Create src/global.css
+        const srcDir = path.join(process.cwd(), 'src');
+        const cssPath = path.join(srcDir, 'global.css');
+        
+        if (!fs.existsSync(srcDir)) {
+            fs.mkdirSync(srcDir, { recursive: true });
+        }
+
+        const cssUrl = `${BASE_URL}/src/global.css`;
+        const cssResponse = await fetch(cssUrl);
+        if (cssResponse.ok) {
+            const cssContent = await cssResponse.text();
+            fs.writeFileSync(cssPath, cssContent);
+            console.log('✓ Created src/global.css');
+        } else {
+            console.error('Failed to download global.css');
+        }
+
+        console.log('\nProject initialized! Don\'t forget to import global.css in your root layout/index file.');
+        return;
+    }
+
     // 1. Fetch registry
     console.log('Fetching registry...');
     const registryResponse = await fetch(`${BASE_URL}/registry.json`);

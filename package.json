@@ -1,6 +1,6 @@
 {
   "name": "rn-cn-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A high-quality, open-source UI library for React Native, inspired by shadcn/ui.",
   "main": "index.js",
   "bin": {

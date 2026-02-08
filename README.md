@@ -6,7 +6,54 @@ A high-quality, open-source UI library for React Native, inspired by shadcn/ui.
 ## Prerequisites
 
 1.  **React Native** project (Expo or CLI).
-2.  **NativeWind** and **Tailwind CSS** configured.
+2.  **NativeWind v4** configured.
+
+### Important: Install Dependencies
+
+NativeWind v4 requires `react-native-reanimated`. Ensure you have installed it and its peer dependencies:
+
+```bash
+npm install nativewind react-native-reanimated react-native-safe-area-context react-native-svg
+```
+
+### Configure Babel
+
+Add `react-native-reanimated/plugin` to your `babel.config.js`. **It must be listed last.**
+
+```js
+module.exports = function(api) {
+  api.cache(true);
+  return {
+    presets: [
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+      "nativewind/babel",
+    ],
+    plugins: [
+      "react-native-reanimated/plugin",
+    ],
+  };
+};
+```
+
+*Note: If you are using Expo, use `babel-preset-expo` instead of `module:metro-react-native-babel-preset`.*
+
+## Setup
+
+Run the init command to set up the base styles and utilities:
+
+```bash
+npx rn-cn-ui init
+```
+
+This will create:
+- `src/global.css` (Base styles and theme variables)
+- `src/lib/utils.ts` (Utility for class merging)
+
+**Important:** Import `global.css` in your root file (e.g., `App.tsx` or `app/_layout.tsx`):
+
+```tsx
+import "./src/global.css";
+```
 
 ## Usage
 
@@ -42,22 +89,29 @@ export default function App() {
 
 You can add any of the following components:
 
--   `button`
--   `text`
--   `input`
--   `card`
--   `badge`
+-   `accordion`
+-   `alert`
+-   `aspect-ratio`
 -   `avatar`
+-   `badge`
+-   `button`
+-   `card`
+-   `checkbox`
+-   `dialog`
+-   `input`
 -   `label`
+-   `progress`
+-   `radio-group`
+-   `select`
 -   `separator`
 -   `skeleton`
 -   `spinner`
 -   `switch`
--   `checkbox`
--   `radio-group`
+-   `tabs`
+-   `text`
 -   `textarea`
--   `alert`
--   `progress`
+-   `toggle`
+-   `toggle-group`
 
 ## Configuration
 
