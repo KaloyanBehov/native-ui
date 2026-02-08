@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+build/
+dist/
+lib/
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+
+# React Native
+# Android
+android/build/
+android/app/build/
+android/.gradle/
+
+# iOS
+ios/Pods/
+ios/build/
+ios/*.xcworkspace
+ios/Podfile.lock
+
+# Metro
+.metro-health-check
+
+# TypeScript
+*.tsbuildinfo
