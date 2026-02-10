@@ -6,9 +6,15 @@ export default function Index() {
   return (
     <ScrollView className="flex-1 bg-background p-4">
       <View className="gap-4 pb-10">
-        <View className="flex-row gap-4 mb-4">
+        <View className="flex-row gap-4 mb-4 flex-wrap">
             <Link href="/accordion" asChild>
                 <Button label="Go to Accordion" />
+            </Link>
+            <Link href="/alert" asChild>
+                <Button label="Go to Alert" />
+            </Link>
+            <Link href="/alert-dialog" asChild>
+                <Button label="Go to Alert Dialog" />
             </Link>
         </View>
 

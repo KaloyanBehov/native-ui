@@ -27,6 +27,8 @@ config.resolver.extraNodeModules = {
   "clsx": path.resolve(__dirname, "node_modules/clsx"),
   "tailwind-merge": path.resolve(__dirname, "node_modules/tailwind-merge"),
   "class-variance-authority": path.resolve(__dirname, "node_modules/class-variance-authority"),
+  "react-native-svg": path.resolve(__dirname, "node_modules/react-native-svg"),
+  "lucide-react-native": path.resolve(__dirname, "node_modules/lucide-react-native"),
 };
 
 // 4. Block the bundler from seeing the parent's versions of these packages
@@ -59,6 +61,12 @@ const blockList = [
   ),
   new RegExp(
     `${path.resolve(__dirname, "..", "node_modules", "class-variance-authority")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "react-native-svg")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "lucide-react-native")}/.*`
   ),
 ];
 
