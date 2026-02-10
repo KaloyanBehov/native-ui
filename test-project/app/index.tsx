@@ -1,10 +1,17 @@
 import { View, Text, ScrollView } from "react-native";
 import { Button } from "../../src/components/ui/button";
+import { Link } from "expo-router";
 
 export default function Index() {
   return (
     <ScrollView className="flex-1 bg-background p-4">
       <View className="gap-4 pb-10">
+        <View className="flex-row gap-4 mb-4">
+            <Link href="/accordion" asChild>
+                <Button label="Go to Accordion" />
+            </Link>
+        </View>
+
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
         
         <View className="gap-2">

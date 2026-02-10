@@ -23,6 +23,7 @@ config.resolver.extraNodeModules = {
   "@expo/vector-icons": path.resolve(__dirname, "node_modules/@expo/vector-icons"),
   "nativewind": path.resolve(__dirname, "node_modules/nativewind"),
   "react-native-css-interop": path.resolve(__dirname, "node_modules/react-native-css-interop"),
+  "react-native-worklets": path.resolve(__dirname, "node_modules/react-native-worklets"),
   "clsx": path.resolve(__dirname, "node_modules/clsx"),
   "tailwind-merge": path.resolve(__dirname, "node_modules/tailwind-merge"),
   "class-variance-authority": path.resolve(__dirname, "node_modules/class-variance-authority"),
@@ -46,6 +47,9 @@ const blockList = [
   ),
   new RegExp(
     `${path.resolve(__dirname, "..", "node_modules", "react-native-css-interop")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "react-native-worklets")}/.*`
   ),
   new RegExp(
     `${path.resolve(__dirname, "..", "node_modules", "clsx")}/.*`
