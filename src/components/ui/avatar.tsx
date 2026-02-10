@@ -1,60 +1,90 @@
 import * as React from "react"
-import { Image, View, Text } from "react-native"
+import { View, Image, ImageErrorEventData, NativeSyntheticEvent } from "react-native"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
+import { Text } from "./text"
+
+const avatarVariants = cva(
+  "relative flex shrink-0 overflow-hidden rounded-full",
+  {
+    variants: {
+      size: {
+        default: "h-10 w-10",
+        sm: "h-6 w-6",
+        lg: "h-14 w-14",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+)
+
+const AvatarContext = React.createContext<{ size?: "default" | "sm" | "lg" }>({})
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof View>,
-  React.ComponentPropsWithoutRef<typeof View>
->(({ className, ...props }, ref) => (
-  <View
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className
-    )}
-    {...props}
-  />
+  React.ComponentPropsWithoutRef<typeof View> & VariantProps<typeof avatarVariants>
+>(({ className, size, ...props }, ref) => (
+  <AvatarContext.Provider value={{ size: size || "default" }}>
+    <View
+      ref={ref}
+      className={cn(avatarVariants({ size, className }))}
+      {...props}
+    />
+  </AvatarContext.Provider>
 ))
 Avatar.displayName = "Avatar"
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof Image>,
   React.ComponentPropsWithoutRef<typeof Image>
->(({ className, ...props }, ref) => (
-  <Image
-    ref={ref}
-    className={cn("aspect-square h-full w-full", className)}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  const [hasError, setHasError] = React.useState(false)
+
+  if (hasError) {
+    return null
+  }
+
+  return (
+    <Image
+      ref={ref}
+      className={cn("aspect-square h-full w-full", className)}
+      onError={() => setHasError(true)}
+      {...props}
+    />
+  )
+})
 AvatarImage.displayName = "AvatarImage"
 
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View>
->(({ className, ...props }, ref) => (
-  <View
-    ref={ref}
-    className={cn(
-      "flex h-full w-full items-center justify-center rounded-full bg-muted",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, children, ...props }, ref) => {
+  const { size } = React.useContext(AvatarContext)
+  
+  return (
+    <View
+      ref={ref}
+      className={cn(
+        "flex h-full w-full items-center justify-center rounded-full bg-muted",
+        className
+      )}
+      {...props}
+    >
+      {typeof children === 'string' ? (
+        <Text className={cn(
+            "text-muted-foreground font-medium",
+            size === "sm" ? "text-xs" : 
+            size === "lg" ? "text-xl" : 
+            "text-base"
+        )}>
+            {children}
+        </Text>
+      ) : children}
+    </View>
+  )
+})
 AvatarFallback.displayName = "AvatarFallback"
 
-const AvatarFallbackText = React.forwardRef<
-  React.ElementRef<typeof Text>,
-  React.ComponentPropsWithoutRef<typeof Text>
->(({ className, ...props }, ref) => (
-  <Text
-    ref={ref}
-    className={cn("text-sm font-medium text-muted-foreground", className)}
-    {...props}
-  />
-))
-AvatarFallbackText.displayName = "AvatarFallbackText"
-
-
-export { Avatar, AvatarImage, AvatarFallback, AvatarFallbackText }
+export { Avatar, AvatarImage, AvatarFallback }

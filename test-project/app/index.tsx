@@ -16,6 +16,9 @@ export default function Index() {
             <Link href="/alert-dialog" asChild>
                 <Button label="Go to Alert Dialog" />
             </Link>
+            <Link href="/avatar" asChild>
+                <Button label="Go to Avatar" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
