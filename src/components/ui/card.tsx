@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Text, View } from "react-native"
+import { View } from "react-native"
 import { cn } from "../../lib/utils"
-import { Text as UiText } from "./text"
+import { Text } from "./text"
 
 const Card = React.forwardRef<
   React.ElementRef<typeof View>,
@@ -31,13 +31,13 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  React.ElementRef<typeof UiText>,
-  React.ComponentPropsWithoutRef<typeof UiText>
+  React.ElementRef<typeof Text>,
+  React.ComponentPropsWithoutRef<typeof Text>
 >(({ className, ...props }, ref) => (
-  <UiText
+  <Text
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-2xl font-semibold leading-none tracking-tight text-foreground",
       className
     )}
     {...props}
@@ -46,10 +46,10 @@ const CardTitle = React.forwardRef<
 CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<
-  React.ElementRef<typeof UiText>,
-  React.ComponentPropsWithoutRef<typeof UiText>
+  React.ElementRef<typeof Text>,
+  React.ComponentPropsWithoutRef<typeof Text>
 >(({ className, ...props }, ref) => (
-  <UiText
+  <Text
     ref={ref}
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
@@ -71,7 +71,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <View
     ref={ref}
-    className={cn("flex flex-row items-center p-6 pt-0", className)}
+    className={cn("flex-row items-center p-6 pt-0", className)}
     {...props}
   />
 ))

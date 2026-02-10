@@ -31,6 +31,12 @@ export default function Index() {
             <Link href="/calendar" asChild>
                 <Button label="Go to Calendar" />
             </Link>
+            <Link href="/card" asChild>
+                <Button label="Go to Card" />
+            </Link>
+            <Link href="/carousel" asChild>
+                <Button label="Go to Carousel" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
