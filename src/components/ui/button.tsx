@@ -1,93 +1,117 @@
-import * as React from "react"
-import { Text, Pressable, type PressableProps } from "react-native"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../lib/utils"
+import { cva, type VariantProps } from 'class-variance-authority'
+import * as React from 'react'
+import { useState } from 'react'
+import { ActivityIndicator, Pressable, Text, View } from 'react-native'
+import { cn } from '../../lib/utils'
 
+// Hit slop for the button to make it easier to tap on small devices
+const DEFAULT_HIT_SLOP = { top: 10, bottom: 10, left: 10, right: 10 }
 const buttonVariants = cva(
-  "group flex-row items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  'group flex-row items-center justify-center web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "bg-primary active:opacity-90 web:hover:bg-primary/90",
-        destructive: "bg-destructive active:opacity-90 web:hover:bg-destructive/90",
+        default: 'bg-primary active:opacity-90 web:hover:bg-primary/90',
+        destructive: 'bg-destructive active:opacity-90 web:hover:bg-destructive/90',
         outline:
-          "border border-input bg-background active:bg-accent web:hover:bg-accent web:hover:text-accent-foreground",
-        secondary: "bg-secondary active:opacity-80 web:hover:bg-secondary/80",
-        ghost: "active:bg-accent web:hover:bg-accent web:hover:text-accent-foreground",
-        link: "web:underline-offset-4 web:hover:underline",
+          'border border-input bg-background active:bg-accent web:hover:bg-accent web:hover:text-accent-foreground',
+        secondary: 'bg-secondary active:opacity-80 web:hover:bg-secondary/80',
+        ghost: 'active:bg-accent web:hover:bg-accent web:hover:text-accent-foreground',
+        link: 'web:underline-offset-4 web:hover:underline',
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        default: 'h-9 px-4 py-2',
+        sm: 'h-8 px-3 py-1.5',
+        md: 'h-10 px-4 py-2',
+        lg: 'h-10 px-8 py-4',
+        icon: 'size-9 p-2',
+      },
+      radius: {
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
       },
     },
+
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
+      radius: 'md',
     },
-  }
+  },
 )
 
-const buttonTextVariants = cva(
-  "text-sm font-medium web:transition-colors",
-  {
-    variants: {
-      variant: {
-        default: "text-primary-foreground",
-        destructive: "text-destructive-foreground",
-        outline: "text-foreground group-active:text-accent-foreground",
-        secondary: "text-secondary-foreground",
-        ghost: "text-foreground group-active:text-accent-foreground",
-        link: "text-primary group-active:underline",
-      },
-      size: {
-        default: "",
-        sm: "",
-        lg: "",
-        icon: "",
-      },
+const buttonTextVariants = cva('text-sm font-medium web:transition-colors', {
+  variants: {
+    variant: {
+      default: 'text-primary-foreground',
+      destructive: 'text-destructive-foreground',
+      outline: 'text-foreground group-active:text-accent-foreground',
+      secondary: 'text-secondary-foreground',
+      ghost: 'text-foreground group-active:text-accent-foreground',
+      link: 'text-primary group-active:underline',
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
+    size: {
+      default: 'text-base',
+      sm: 'text-sm',
+      md: 'text-md',
+      lg: 'text-lg',
+      icon: 'text-base',
     },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
+})
 
 type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
   VariantProps<typeof buttonVariants> & {
     label?: string
     labelClasses?: string
+    isLoading?: boolean
+    disabled?: boolean
+    className?: string
   }
 
 const Button = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
-  ({ className, variant, size, label, labelClasses, children, ...props }, ref) => {
+  ({ className, variant, size, radius, label, labelClasses, children, isLoading, disabled, ...props }, ref) => {
+    const isDisabled = disabled || isLoading
+    const [isPressed, setIsPressed] = useState(false)
+
     return (
       <Pressable
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, radius, className }),
+          isPressed && 'opacity-80',
+          isDisabled && 'opacity-50',
+        )}
         ref={ref}
+        hitSlop={DEFAULT_HIT_SLOP}
         role="button"
+        disabled={isDisabled}
+        onPressIn={() => setIsPressed(true)}
+        onPressOut={() => setIsPressed(false)}
         {...props}
       >
-        {label ? (
-          <Text
-            className={cn(
-              buttonTextVariants({ variant, size }),
-              labelClasses
-            )}
-          >
-            {label}
-          </Text>
-        ) : (
-          children
+        {isLoading && (
+          <View style={label || children ? { marginRight: 8 } : undefined}>
+            <ActivityIndicator
+              size="small"
+              color={variant === 'default' || variant === 'destructive' ? '#ffffff' : undefined}
+            />
+          </View>
         )}
+        {label ? <Text className={cn(buttonTextVariants({ variant, size }), labelClasses)}>{label}</Text> : children}
       </Pressable>
     )
-  }
+  },
 )
-Button.displayName = "Button"
+Button.displayName = 'Button'
 
-export { Button, buttonVariants, buttonTextVariants }
+export { Button, buttonTextVariants, buttonVariants }
 export type { ButtonProps }
