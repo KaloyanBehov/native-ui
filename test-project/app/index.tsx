@@ -28,6 +28,9 @@ export default function Index() {
             <Link href="/button-group" asChild>
                 <Button label="Go to Button Group" />
             </Link>
+            <Link href="/calendar" asChild>
+                <Button label="Go to Calendar" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
