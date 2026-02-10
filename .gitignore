@@ -48,3 +48,6 @@ ios/Podfile.lock
 
 # TypeScript
 *.tsbuildinfo
+
+# Local development
+shadcn/
