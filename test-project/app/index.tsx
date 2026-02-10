@@ -19,6 +19,9 @@ export default function Index() {
             <Link href="/avatar" asChild>
                 <Button label="Go to Avatar" />
             </Link>
+            <Link href="/badge" asChild>
+                <Button label="Go to Badge" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
