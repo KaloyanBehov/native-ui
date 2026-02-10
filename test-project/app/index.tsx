@@ -22,6 +22,12 @@ export default function Index() {
             <Link href="/badge" asChild>
                 <Button label="Go to Badge" />
             </Link>
+            <Link href="/breadcrumb" asChild>
+                <Button label="Go to Breadcrumb" />
+            </Link>
+            <Link href="/button-group" asChild>
+                <Button label="Go to Button Group" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
