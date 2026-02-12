@@ -43,6 +43,12 @@ export default function Index() {
             <Link href="/checkbox" asChild>
                 <Button label="Go to Checkbox" />
             </Link>
+            <Link href="/collapsible" asChild>
+                <Button label="Go to Collapsible" />
+            </Link>
+            <Link href="/combobox" asChild>
+                <Button label="Go to Combobox" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
