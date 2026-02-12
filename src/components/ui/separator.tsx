@@ -24,7 +24,7 @@ export interface SeparatorProps
 
 const Separator = React.forwardRef<
   React.ElementRef<typeof View>,
-  SeparatorProps
+  SeparatorProps & { className?: string }
 >(
   (
     { className, orientation = "horizontal", decorative = true, ...props },
