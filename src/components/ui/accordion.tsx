@@ -81,8 +81,8 @@ const AccordionTrigger = React.forwardRef<
   const { value: itemValue } = React.useContext(AccordionItemContext)!
   
   const isExpanded = Array.isArray(value) ? value.includes(itemValue) : value === itemValue
-  const progress = useDerivedValue(() => isExpanded ? 1 : 0)
-
+  const progress = useDerivedValue(() => withTiming(isExpanded ? 1 : 0))
+  
   const chevronStyle = useAnimatedStyle(() => ({
     transform: [{ rotate: `${progress.value * 180}deg` }],
   }))

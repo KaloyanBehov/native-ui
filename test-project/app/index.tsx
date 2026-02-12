@@ -49,6 +49,21 @@ export default function Index() {
             <Link href="/combobox" asChild>
                 <Button label="Go to Combobox" />
             </Link>
+            <Link href="/command" asChild>
+                <Button label="Go to Command" />
+            </Link>
+            <Link href="/context-menu" asChild>
+                <Button label="Go to Context Menu" />
+            </Link>
+            <Link href="/table" asChild>
+                <Button label="Go to Table" />
+            </Link>
+            <Link href="/dialog" asChild>
+                <Button label="Go to Dialog" />
+            </Link>
+            <Link href="/drawer" asChild>
+                <Button label="Go to Drawer" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>

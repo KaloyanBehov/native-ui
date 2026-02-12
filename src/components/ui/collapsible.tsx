@@ -76,10 +76,12 @@ const CollapsibleContent = React.forwardRef<
   const bodyRef = useAnimatedRef<View>()
   const height = useSharedValue(0)
 
-  const style = useAnimatedStyle(() => ({
-    height: height.value * progress.value + 1,
-    opacity: progress.value === 0 ? 0 : 1,
-  }))
+  const style = useAnimatedStyle(() => {
+    return {
+      height: height.value * progress.value + 1,
+      opacity: progress.value === 0 ? 0 : 1,
+    }
+  })
 
   return (
     <Animated.View style={[{ overflow: 'hidden' }, style]}>

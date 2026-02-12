@@ -31,6 +31,7 @@ config.resolver.extraNodeModules = {
   "lucide-react-native": path.resolve(__dirname, "node_modules/lucide-react-native"),
   "react-native-gifted-charts": path.resolve(__dirname, "node_modules/react-native-gifted-charts"),
   "expo-linear-gradient": path.resolve(__dirname, "node_modules/expo-linear-gradient"),
+  "react-native-gesture-handler": path.resolve(__dirname, "node_modules/react-native-gesture-handler"),
 };
 
 // 4. Block the bundler from seeing the parent's versions of these packages
@@ -75,6 +76,9 @@ const blockList = [
   ),
   new RegExp(
     `${path.resolve(__dirname, "..", "node_modules", "expo-linear-gradient")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "react-native-gesture-handler")}/.*`
   ),
 ];
 
