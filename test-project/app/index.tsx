@@ -64,6 +64,15 @@ export default function Index() {
             <Link href="/drawer" asChild>
                 <Button label="Go to Drawer" />
             </Link>
+            <Link href="/sheet" asChild>
+                <Button label="Go to Sheet" />
+            </Link>
+            <Link href="/separator" asChild>
+                <Button label="Go to Separator" />
+            </Link>
+            <Link href="/dropdown-menu" asChild>
+                <Button label="Go to Dropdown Menu" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>
