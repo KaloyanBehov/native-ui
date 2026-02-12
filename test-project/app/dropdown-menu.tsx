@@ -1,5 +1,6 @@
 import React from "react";
 import { View, ScrollView } from "react-native";
+import { Text } from "rn-cn-ui/components/ui/text";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "rn-cn-ui/components/ui/dropdown-menu";
 import { Button } from "rn-cn-ui/components/ui/button";
-import { Text } from "rn-cn-ui/components/ui/text";
 import { Cloud, CreditCard, Github, Keyboard, LifeBuoy, LogOut, Mail, MessageSquare, Plus, PlusCircle, Settings, User, UserPlus, Users } from "lucide-react-native";
 
 export default function DropdownMenuScreen() {

@@ -29,7 +29,9 @@ const textVariants = cva(
 
 export interface TextProps
   extends React.ComponentPropsWithoutRef<typeof RNText>,
-    VariantProps<typeof textVariants> {}
+    VariantProps<typeof textVariants> {
+  className?: string;
+}
 
 const Text = React.forwardRef<React.ElementRef<typeof RNText>, TextProps>(
   ({ className, variant, ...props }, ref) => {
