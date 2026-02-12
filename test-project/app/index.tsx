@@ -40,6 +40,9 @@ export default function Index() {
             <Link href="/chart" asChild>
                 <Button label="Go to Chart" />
             </Link>
+            <Link href="/checkbox" asChild>
+                <Button label="Go to Checkbox" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>

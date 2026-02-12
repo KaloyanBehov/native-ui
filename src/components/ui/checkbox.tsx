@@ -18,7 +18,7 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof Pressable>, CheckboxPr
         disabled={disabled}
         onPress={() => onCheckedChange?.(!checked)}
         className={cn(
-          "peer h-4 w-4 shrink-0 rounded-sm border border-primary bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          "peer h-4 w-4 shrink-0 rounded-sm border border-primary bg-background web:ring-offset-background web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           checked && "bg-primary text-primary-foreground",
           className
         )}
@@ -26,7 +26,7 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof Pressable>, CheckboxPr
       >
         {checked && (
           <View className="flex items-center justify-center h-full w-full">
-            <Check size={12} color={checked ? "hsl(var(--primary-foreground))" : "transparent"} strokeWidth={3} />
+            <Check size={12} className="text-primary-foreground" color="white" strokeWidth={3} />
           </View>
         )}
       </Pressable>
