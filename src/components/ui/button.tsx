@@ -20,11 +20,10 @@ const buttonVariants = cva(
         link: 'web:underline-offset-4 web:hover:underline',
       },
       size: {
-        default: 'h-9 px-4 py-2',
-        sm: 'h-8 px-3 py-1.5',
-        md: 'h-10 px-4 py-2',
-        lg: 'h-10 px-8 py-4',
-        icon: 'size-9 p-2',
+        default: 'h-10 px-4 py-2 native:h-12 native:px-5 native:py-3',
+        sm: 'h-9 rounded-md px-3',
+        lg: 'h-11 rounded-md px-8 native:h-14',
+        icon: 'h-10 w-10',
       },
       radius: {
         none: 'rounded-none',
@@ -45,7 +44,7 @@ const buttonVariants = cva(
   },
 )
 
-const buttonTextVariants = cva('text-sm font-medium web:transition-colors', {
+const buttonTextVariants = cva('text-sm font-medium web:transition-colors text-center', {
   variants: {
     variant: {
       default: 'text-primary-foreground',
@@ -55,13 +54,12 @@ const buttonTextVariants = cva('text-sm font-medium web:transition-colors', {
       ghost: 'text-foreground group-active:text-accent-foreground',
       link: 'text-primary group-active:underline',
     },
-    size: {
-      default: 'text-base',
-      sm: 'text-sm',
-      md: 'text-md',
-      lg: 'text-lg',
-      icon: 'text-base',
-    },
+      size: {
+        default: 'text-base',
+        sm: 'text-sm',
+        lg: 'text-xl',
+        icon: 'text-base',
+      },
   },
   defaultVariants: {
     variant: 'default',
