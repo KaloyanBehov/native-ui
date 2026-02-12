@@ -37,6 +37,9 @@ export default function Index() {
             <Link href="/carousel" asChild>
                 <Button label="Go to Carousel" />
             </Link>
+            <Link href="/chart" asChild>
+                <Button label="Go to Chart" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>

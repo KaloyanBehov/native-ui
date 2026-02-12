@@ -29,6 +29,8 @@ config.resolver.extraNodeModules = {
   "class-variance-authority": path.resolve(__dirname, "node_modules/class-variance-authority"),
   "react-native-svg": path.resolve(__dirname, "node_modules/react-native-svg"),
   "lucide-react-native": path.resolve(__dirname, "node_modules/lucide-react-native"),
+  "react-native-gifted-charts": path.resolve(__dirname, "node_modules/react-native-gifted-charts"),
+  "expo-linear-gradient": path.resolve(__dirname, "node_modules/expo-linear-gradient"),
 };
 
 // 4. Block the bundler from seeing the parent's versions of these packages
@@ -67,6 +69,12 @@ const blockList = [
   ),
   new RegExp(
     `${path.resolve(__dirname, "..", "node_modules", "lucide-react-native")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "react-native-gifted-charts")}/.*`
+  ),
+  new RegExp(
+    `${path.resolve(__dirname, "..", "node_modules", "expo-linear-gradient")}/.*`
   ),
 ];
 
