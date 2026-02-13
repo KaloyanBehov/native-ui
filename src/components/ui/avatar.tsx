@@ -38,17 +38,20 @@ Avatar.displayName = "Avatar"
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof Image>,
-  React.ComponentPropsWithoutRef<typeof Image>
->(({ className, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof Image> & { src?: string }
+>(({ className, src, ...props }, ref) => {
   const [hasError, setHasError] = React.useState(false)
 
   if (hasError) {
     return null
   }
 
+  const source = src ? { uri: src } : props.source;
+
   return (
     <Image
       ref={ref}
+      source={source}
       className={cn("aspect-square h-full w-full", className)}
       onError={() => setHasError(true)}
       {...props}

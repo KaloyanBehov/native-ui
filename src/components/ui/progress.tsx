@@ -5,6 +5,7 @@ import { cn } from "../../lib/utils"
 interface ProgressProps extends React.ComponentPropsWithoutRef<typeof View> {
   value?: number
   max?: number
+  className?: string
 }
 
 const Progress = React.forwardRef<React.ElementRef<typeof View>, ProgressProps>(
@@ -21,7 +22,7 @@ const Progress = React.forwardRef<React.ElementRef<typeof View>, ProgressProps>(
         {...props}
       >
         <View
-          className="h-full w-full flex-1 bg-primary transition-all"
+          className="h-full bg-primary"
           style={{ width: `${percentage}%` }}
         />
       </View>

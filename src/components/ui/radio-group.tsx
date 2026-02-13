@@ -8,6 +8,7 @@ const RadioGroup = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof View> & {
     value?: string
     onValueChange?: (value: string) => void
+    className?: string
   }
 >(({ className, value, onValueChange, children, ...props }, ref) => {
   return (
@@ -33,13 +34,14 @@ const RadioGroupItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Pressable> & {
     value: string
     checked?: boolean
+    className?: string
   }
 >(({ className, value, checked, ...props }, ref) => {
   return (
     <Pressable
       ref={ref}
       className={cn(
-        "aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 items-center justify-center",
+        "aspect-square h-4 w-4 rounded-full border border-primary text-primary web:ring-offset-background web:focus:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 items-center justify-center",
         className
       )}
       {...props}

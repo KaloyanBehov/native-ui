@@ -73,6 +73,48 @@ export default function Index() {
             <Link href="/dropdown-menu" asChild>
                 <Button label="Go to Dropdown Menu" />
             </Link>
+            <Link href="/field" asChild>
+                <Button label="Go to Field" />
+            </Link>
+            <Link href="/hover-card" asChild>
+                <Button label="Go to Hover Card" />
+            </Link>
+            <Link href="/input" asChild>
+                <Button label="Go to Input" />
+            </Link>
+            <Link href="/input-group" asChild>
+                <Button label="Go to Input Group" />
+            </Link>
+            <Link href="/input-otp" asChild>
+                <Button label="Go to Input OTP" />
+            </Link>
+            <Link href="/item" asChild>
+                <Button label="Go to Item" />
+            </Link>
+            <Link href="/label" asChild>
+                <Button label="Go to Label" />
+            </Link>
+            <Link href="/menubar" asChild>
+                <Button label="Go to Menubar" />
+            </Link>
+            <Link href="/navigation-menu" asChild>
+                <Button label="Go to Navigation Menu" />
+            </Link>
+            <Link href="/pagination" asChild>
+                <Button label="Go to Pagination" />
+            </Link>
+            <Link href="/popover" asChild>
+                <Button label="Go to Popover" />
+            </Link>
+            <Link href="/progress" asChild>
+                <Button label="Go to Progress" />
+            </Link>
+            <Link href="/radio-group" asChild>
+                <Button label="Go to Radio Group" />
+            </Link>
+            <Link href="/resizable" asChild>
+                <Button label="Go to Resizable" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>

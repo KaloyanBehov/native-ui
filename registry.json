@@ -99,10 +99,55 @@
     "dependencies": ["react-native-reanimated", "react-native-gesture-handler", "lucide-react-native", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/drawer.tsx"]
   },
+  "field": {
+    "name": "field",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/field.tsx"]
+  },
+  "hover-card": {
+    "name": "hover-card",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/hover-card.tsx"]
+  },
   "input": {
     "name": "input",
     "dependencies": ["clsx", "tailwind-merge"],
     "files": ["src/components/ui/input.tsx"]
+  },
+  "input-group": {
+    "name": "input-group",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/input-group.tsx"]
+  },
+  "input-otp": {
+    "name": "input-otp",
+    "dependencies": ["react-native-reanimated", "lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/input-otp.tsx"]
+  },
+  "item": {
+    "name": "item",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/item.tsx"]
+  },
+  "menubar": {
+    "name": "menubar",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/menubar.tsx"]
+  },
+  "navigation-menu": {
+    "name": "navigation-menu",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/navigation-menu.tsx"]
+  },
+  "pagination": {
+    "name": "pagination",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/pagination.tsx"]
+  },
+  "popover": {
+    "name": "popover",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/popover.tsx"]
   },
   "label": {
     "name": "label",
@@ -118,6 +163,11 @@
     "name": "radio-group",
     "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/radio-group.tsx"]
+  },
+  "resizable": {
+    "name": "resizable",
+    "dependencies": ["react-native-reanimated", "react-native-gesture-handler", "lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/resizable.tsx"]
   },
   "select": {
     "name": "select",
