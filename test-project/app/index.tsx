@@ -115,6 +115,12 @@ export default function Index() {
             <Link href="/resizable" asChild>
                 <Button label="Go to Resizable" />
             </Link>
+            <Link href="/scroll-area" asChild>
+                <Button label="Go to Scroll Area" />
+            </Link>
+            <Link href="/select" asChild>
+                <Button label="Go to Select" />
+            </Link>
         </View>
 
         <Text className="text-2xl font-bold text-foreground mb-4">Button Variants</Text>

@@ -169,6 +169,11 @@
     "dependencies": ["react-native-reanimated", "react-native-gesture-handler", "lucide-react-native", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/resizable.tsx"]
   },
+  "scroll-area": {
+    "name": "scroll-area",
+    "dependencies": ["clsx", "tailwind-merge"],
+    "files": ["src/components/ui/scroll-area.tsx"]
+  },
   "select": {
     "name": "select",
     "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
