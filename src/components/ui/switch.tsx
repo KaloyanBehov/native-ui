@@ -1,23 +1,85 @@
 import * as React from "react"
-import { Switch as RNSwitch, Platform } from "react-native"
+import { View, Pressable } from "react-native"
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated"
 import { cn } from "../../lib/utils"
 
+const SIZE = {
+  default: { trackWidth: 32, trackHeight: 18.4, thumbSize: 16 },
+  sm: { trackWidth: 24, trackHeight: 14, thumbSize: 12 },
+} as const
+
 const Switch = React.forwardRef<
-  React.ElementRef<typeof RNSwitch>,
-  React.ComponentPropsWithoutRef<typeof RNSwitch>
->(({ className, ...props }, ref) => (
-  <RNSwitch
-    ref={ref}
-    className={cn(
-      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
-      className
-    )}
-    trackColor={{ false: "hsl(var(--input))", true: "hsl(var(--primary))" }}
-    thumbColor={Platform.OS === "android" ? "hsl(var(--background))" : undefined}
-    ios_backgroundColor="hsl(var(--input))"
-    {...props}
-  />
-))
+  React.ElementRef<typeof Pressable>,
+  React.ComponentPropsWithoutRef<typeof Pressable> & {
+    checked?: boolean
+    onCheckedChange?: (checked: boolean) => void
+    disabled?: boolean
+    size?: "sm" | "default"
+    className?: string
+  }
+>(({ className, checked, onCheckedChange, disabled, size = "default", ...props }, ref) => {
+  const isControlled = checked !== undefined
+  const [uncontrolledChecked, setUncontrolledChecked] = React.useState(false)
+  const value = isControlled ? checked : uncontrolledChecked
+
+  const { trackWidth, trackHeight, thumbSize } = SIZE[size]
+  const thumbOffset = trackWidth - thumbSize - 2 // shadcn: data-[state=checked]:translate-x-[calc(100%-2px)]
+  const thumbTop = (trackHeight - thumbSize) / 2
+
+  const translateX = useSharedValue(value ? thumbOffset : 0)
+
+  React.useEffect(() => {
+    translateX.value = withTiming(value ? thumbOffset : 0, { duration: 150 })
+  }, [value, thumbOffset])
+
+  const thumbStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: translateX.value }],
+  }))
+
+  const handlePress = () => {
+    if (disabled) return
+    const next = !value
+    if (!isControlled) setUncontrolledChecked(next)
+    onCheckedChange?.(next)
+  }
+
+  return (
+    <Pressable
+      ref={ref}
+      onPress={handlePress}
+      disabled={disabled}
+      accessibilityRole="switch"
+      accessibilityState={{ checked: value }}
+      className={cn(
+        "justify-center rounded-full border border-transparent shadow-xs shrink-0",
+        "active:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed",
+        value ? "bg-primary" : "bg-input",
+        size === "default" && "h-[18.4px] w-8",
+        size === "sm" && "h-3.5 w-6",
+        className
+      )}
+      style={[
+        size === "default" && { height: 18.4, width: 32 },
+        size === "sm" && { height: 14, width: 24 },
+      ]}
+      {...props}
+    >
+      <Animated.View
+        pointerEvents="none"
+        className="absolute left-0.5 rounded-full bg-background"
+        style={[
+          thumbStyle,
+          {
+            top: thumbTop,
+            width: thumbSize,
+            height: thumbSize,
+            marginLeft: 2,
+          },
+        ]}
+      />
+    </Pressable>
+  )
+})
 Switch.displayName = "Switch"
 
 export { Switch }

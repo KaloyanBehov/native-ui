@@ -99,6 +99,16 @@
     "dependencies": ["react-native-reanimated", "react-native-gesture-handler", "lucide-react-native", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/drawer.tsx"]
   },
+  "dropdown-menu": {
+    "name": "dropdown-menu",
+    "dependencies": ["lucide-react-native", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/dropdown-menu.tsx"]
+  },
+  "empty": {
+    "name": "empty",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/empty.tsx"]
+  },
   "field": {
     "name": "field",
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
@@ -184,6 +194,11 @@
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/separator.tsx"]
   },
+  "sheet": {
+    "name": "sheet",
+    "dependencies": ["lucide-react-native", "react-native-reanimated", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/sheet.tsx"]
+  },
   "skeleton": {
     "name": "skeleton",
     "dependencies": ["clsx", "tailwind-merge"],
@@ -196,7 +211,7 @@
   },
   "switch": {
     "name": "switch",
-    "dependencies": ["clsx", "tailwind-merge"],
+    "dependencies": ["react-native-reanimated", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/switch.tsx"]
   },
   "table": {
@@ -228,5 +243,10 @@
     "name": "toggle-group",
     "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
     "files": ["src/components/ui/toggle-group.tsx", "src/components/ui/toggle.tsx"]
+  },
+  "typography": {
+    "name": "typography",
+    "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+    "files": ["src/components/ui/typography.tsx"]
   }
 }

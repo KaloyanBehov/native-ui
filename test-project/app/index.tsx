@@ -68,10 +68,7 @@ export default function Index() {
             <Button label="Go to Dialog" />
           </Link>
           <Link href="/drawer" asChild>
-            <Button label="Go to Drawer" />
-          </Link>
-          <Link href="/sheet" asChild>
-            <Button label="Go to Sheet" />
+            <Button label="Go to Drawer (Bottom)" />
           </Link>
           <Link href="/separator" asChild>
             <Button label="Go to Separator" />
@@ -126,6 +123,9 @@ export default function Index() {
           </Link>
           <Link href="/select" asChild>
             <Button label="Go to Select" />
+          </Link>
+          <Link href="/switch" asChild>
+            <Button label="Go to Switch" />
           </Link>
         </View>
 
